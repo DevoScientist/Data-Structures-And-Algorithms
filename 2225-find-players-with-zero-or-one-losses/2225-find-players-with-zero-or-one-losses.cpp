@@ -10,8 +10,9 @@ public:
         }
         for (auto it = win.begin(); it != win.end(); ++it)
         {
-            auto it2 = lose.find(it->first);
+            auto it2 = lose.lower_bound(it->first);
             if(it2 == lose.end()) ans[0].push_back(it->first);
+            else if(it2->first!=it->first) ans[0].push_back(it->first);
         }
 
         for (auto it = lose.begin(); it != lose.end(); ++it) 
